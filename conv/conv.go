@@ -29,6 +29,6 @@ func FahrenheitToKelvin(f float64) float64 {
 func CelsiusToKelvin(C float64) float64 {
 	return (C + 273.15)
 }
-func KelinToCelsius(K float64) float64 {
+func KelvinToCelsius(K float64) float64 {
 	return (K - 273.15)
 }
