@@ -1,41 +1,43 @@
 package conv
 
+import "math"
+
 /*
-  In this package, all conversion functions should be implemented.
-    FahrenheitToCelsius
-    CelsiusToFahrenheit
-    KelvinToFahrenheit
-    FahrenheitToKelvin
-    CelsiusToKelvin
-    KelvinToCelsius
+	FahrenheitToCelsius
+	CelsiusToFahrenheit
+	KelvinToFahrenheit
+	CelsiusToKelvin
+	KelvinToCelsius
+	FahrenheitToKelvin
 */
 
-// FahrenheitToCelsius converts a temperature in degrees Fahrenheit to degrees Celsius.
-func FahrenheitToCelsius(f float64) float64 {
-        return (f - 32) * 5 / 9
+// La til math.Round slik at output bare har 2 tall bak komma.
+func FahrenheitToCelsius(Fahrenheit float64) float64 {
+	Celsius := (Fahrenheit - 32) * 5 / 9
+	return math.Round(Celsius*100) / 100
 }
 
-// CelsiusToFahrenheit converts a temperature in degrees Celsius to degrees Fahrenheit.
-func CelsiusToFahrenheit(c float64) float64 {
-        return c*9/5 + 32
+func CelsiusToFahrenheit(Celsius float64) float64 {
+	Fahrenheit := (Celsius * 1.8) + 32
+	return math.Round(Fahrenheit*100) / 100
 }
 
-// KelvinToFahrenheit converts a temperature in Kelvin to degrees Fahrenheit.
-func KelvinToFahrenheit(k float64) float64 {
-        return (k-273.15)*9/5 + 32
+func KelvinToFahrenheit(Kelvin float64) float64 {
+	Fahrenheit := Kelvin*9/5 - 459.67
+	return math.Round(Fahrenheit*100) / 100
 }
 
-// FahrenheitToKelvin converts a temperature in degrees Fahrenheit to Kelvin.
-func FahrenheitToKelvin(f float64) float64 {
-        return (f-32)*(5.0/9.0) + 273.15
+func CelsiusToKelvin(Celsius float64) float64 {
+	Kelvin := Celsius + 273.15
+	return math.Round(Kelvin*100) / 100
 }
 
-// CelsiusToKelvin converts a temperature in degrees Celsius to Kelvin.
-func CelsiusToKelvin(c float64) float64 {
-        return c + 273.15
-}
+func KelvinToCelsius(Kelvin float64) float64 {
+	Celsius := Kelvin - 273.15
+	return math.Round(Celsius*100) / 100
 
-// KelvinToCelsius converts a temperature in Kelvin to degrees Celsius.
-func KelvinToCelsius(k float64) float64 {
-        return k - 273.15
+}
+func FahrenheitToKelvin(Fahrenheit float64) float64 {
+	Kelvin := (Fahrenheit + 459.67) * 5 / 9
+	return math.Round(Kelvin*100) / 100
 }
